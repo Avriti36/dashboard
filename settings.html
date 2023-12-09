@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <a href="user.html"><button>Home</button></a>
+    <title>User Settings</title>
+  </head>
+  <body>
+    <h1>User Settings</h1>
+
+    <div class="tabs">
+      <button onclick="showTab('oldDetails')">Old Details</button>
+      <button onclick="showTab('updateDetails')">Update Details</button>
+    </div>
+
+    <div id="oldDetailsTab" class="tab-content">
+      <h2>Old Details</h2>
+      <p>Name: <span id="oldName">babajeje</span></p>
+      <p>Email: <span id="oldEmail">baba@gmai.com</span></p>
+      <p>Phone Number: <span id="oldPhoneNumber">123-456-7890</span></p>
+    </div>
+
+    <div id="updateDetailsTab" class="tab-content" style="display: none">
+      <h2>Update Details</h2>
+
+      <form id="settingsForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name" />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter your email" />
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input
+          type="tel"
+          id="phoneNumber"
+          placeholder="Enter your phone number" />
+
+        <button type="button" onclick="saveSettings()">Save Changes</button>
+      </form>
+    </div>
+
+    <script>
+      function showTab(tabName) {
+        document.getElementById("oldDetailsTab").style.display = "none";
+        document.getElementById("updateDetailsTab").style.display = "none";
+
+        document.getElementById(tabName + "Tab").style.display = "block";
+      }
+
+      function saveSettings() {
+        const newName = document.getElementById("name").value;
+        const newEmail = document.getElementById("email").value;
+        const newPhoneNumber = document.getElementById("phoneNumber").value;
+
+        document.getElementById("oldName").textContent = newName;
+        document.getElementById("oldEmail").textContent = newEmail;
+        document.getElementById("oldPhoneNumber").textContent = newPhoneNumber;
+
+        alert(
+          "Settings saved successfully!\nUpdated Details:\nName: " +
+            newName +
+            "\nEmail: " +
+            newEmail +
+            "\nPhone Number: " +
+            newPhoneNumber
+        );
+      }
+
+      showTab("oldDetails");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>User Details</title>
+  </head>
+  <body>
+    <h2>User Details:</h2>
+    <div id="userDetailsContainer"></div>
+
+    <script>
+      const userDetails = {
+        username: "ramen",
+        password: "ramen22:",
+      };
+
+      const userDetailsContainer = document.getElementById(
+        "userDetailsContainer"
+      );
+
+      for (const [key, value] of Object.entries(userDetails)) {
+        const detailItem = document.createElement("p");
+        detailItem.textContent = `${key}: ${value}`;
+        userDetailsContainer.appendChild(detailItem);
+      }
+    </script>
+    <section id="logout">
+      <button>
+        <a href="user.html"><h3>Logout</h3></a>
+      </button>
+    </section>
+  </body>
+</html>
